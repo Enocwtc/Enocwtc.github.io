@@ -1,4 +1,4 @@
-<button onclick="{{generarDatosDePrueba(10000)}}">Generar Datos de Prueba</button>
+<button onclick="{{generarDatosDePrueba(10000)}}">Generate Test Data</button>
 <h4>Amount of data in memory: {{usuarios.length}} with virtual scroll</h4>
 <div show="{{usuarios.length > 0}}" onscroll="{{onViewportScroll()}}" style="border:1px solid #ccc; height:300px; overflow-y:scroll; position:relative;">
     <div style="{{heightStyle}}">
