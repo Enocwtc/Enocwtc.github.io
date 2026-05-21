@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="link_a_tu_logo.png" alt="myVanilla.js Logo" width="200">
+  <img src="./logo.png" alt="myVanilla.js Logo" width="200">
 
   # myVanilla.js
   **Un motor de UI JIT en memoria, cero dependencias, que inyecta 100k nodos reactivos más rápido de lo que Chrome puede pintarlos.**
