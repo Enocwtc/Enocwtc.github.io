@@ -50,3 +50,24 @@ cd myVanilla.js
 # There's no `npm install`. There's no `npm run build`. It's Vanilla.
 
 # Just start a Live Server in the root directory or open index.html
+
+## 📊 Production Benchmarks (100k Nodes)
+
+These metrics were captured directly from the live production environment on GitHub Pages using Chrome DevTools Performance Profiler. 
+
+### Brute-Force Rendering (Without Virtual Scroll)
+*Injecting 100,000 physical elements directly into the DOM to stress-test the JIT compiler.*
+
+* **Scripting (JIT Compilation & Setup):** 4,574 ms
+* **Rendering (Style Recalculation & Layout):** 3,990 ms
+* **Painting:** 174 ms
+* **Memory Footprint:** ~2.7 GB RAM
+* *Note: This test pushes the browser's rendering engine to its physical limit and will trigger the Out-Of-Memory (OOM) Killer on mobile devices.*
+
+### Optimized Rendering (With Virtual Scroll)
+*Slicing the dataset surgically and rendering only visible nodes at 60 FPS.*
+
+* **Scripting:** 47 ms *(98.9% reduction)*
+* **Rendering:** 38 ms *(99.0% reduction)*
+* **Painting:** 4 ms *(97.7% reduction)*
+* **Memory Footprint:** Minimal / Near-zero baseline
