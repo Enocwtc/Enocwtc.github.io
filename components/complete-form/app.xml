@@ -1,0 +1,87 @@
+<div class="complete-form-wrapper">
+    <div class="complete-form-header">
+        <h2>{{ formTitle }}</h2>
+        <p>Por favor, completa todos los campos requeridos para continuar.</p>
+    </div>
+
+    <form class="premium-form" onsubmit="event.preventDefault();"  loop="{{(v, i) in getKeys(form) }}">
+        <div
+        if          =   "{{ form[v].type !== 'textarea' && form[v].type !== 'checkbox' && form[v].type !== 'radio' && form[v].type !== 'select' }}"
+        class       =   "form-group slide-in"
+        data-anchor = "false"
+        >
+        <span >{{v}} : {{ form[v].value }}</span>
+            <label >{{ form[v].type }}</label>
+            <input 
+                type        =   "{{ form[v].type }}" 
+                placeholder =   "{{ form[v].placeholder }}" 
+                required    =   "{{ form[v].required }}"
+                autocomplete=   "{{ form[v].autocomplete || 'off' }}"
+                module      =   "{{ form[v].value }}">
+        </div>
+
+         <div
+            if          = "{{ form[v].type == 'select' }}"
+            class       = "form-group slide-in"
+            data-anchor = "false"
+            >
+            <label >{{ v }}</label>
+            <select 
+            class="form-group-input-options" 
+            loop="{{(c, idx) in form[v].options}}"
+            name        = "{{ v }}">
+                <option 
+                    value       = "{{c}}"
+                    selected    = "{{ form[v].selected === c }}">{{ c }}
+                </option>
+            </select>
+        </div>
+
+        <div
+            if          = "{{ form[v].type == 'checkbox' }}"
+            class       = "form-group slide-in"
+            data-anchor = "false"
+            >
+            <label >{{ v }}</label>
+            <div class="form-group-input-options" loop="{{(c, idx) in form[v].options}}">
+                <label >{{ c }}
+                    <input 
+                        type        = "{{form[v].type}}"
+                        name        = "{{ v }}"
+                        checked     = "{{ isCheckedCompare(form[v].checked, c) }}"
+                        value       = "{{c}}">
+                </label>
+            </div>
+        </div>
+
+        <div
+            if          = "{{ form[v].type == 'radio' }}"
+            class       = "form-group slide-in"
+            data-anchor = "false"
+            >
+            <label >{{ v }}</label>
+            <div class="form-group-input-options" loop="{{(c, idx) in form[v].options}}">
+                <label >{{ c }}
+                    <input 
+                        type        = "{{form[v].type}}"
+                        name        = "{{ v }}"
+                        checked     = "{{ form[v].checked === c  }}">
+                </label>
+            </div>
+        </div>
+
+        <div
+            if      =  "{{ form[v].type == 'textarea' }}" 
+            class   =  "form-group slide-in"
+            data-anchor = "false"
+            >
+            <label >{{ v }}</label>
+            <textarea 
+                type        =   "{{ form[v].type }}" 
+                placeholder =   "{{ form[v].placeholder }}" 
+                required    =   "{{ form[v].required }}"
+                value       =   "{{ form[v].value }}"></textarea>
+        </div>
+
+    </form>
+</div>

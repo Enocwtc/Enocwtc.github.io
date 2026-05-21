@@ -1,0 +1,26 @@
+<div>
+    <h3>Directorio</h3>
+    <ul>
+        <li>
+            <b>A</b>
+            <div>
+                <p>Ada Lovelace</p>
+                <samp>Online</samp>
+            </div>
+        </li>
+        <li>
+            <b>E</b>
+            <div>
+                <p>Enoc Rodriguez</p>
+                <samp>Online</samp>
+            </div>
+        </li>
+        <li>
+            <b>M</b>
+            <div>
+                <p>Margaret Hamilton</p>
+                <samp>Offline</samp>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+<nav if="true" id="navbar">
+    <div if="{{stM.active}}" class="logo">
+        <b>Vn La Concha de tu Madre</b>
+    </div>
+    <ul loop="{{(v, i) in list}}">
+        <li><button onclick="{{mssg(pepe[i])}}">{{v}}</button></li>
+    </ul>
+    <label title="Toggle Theme">
+        <input type="checkbox" />
+        <i></i>
+        <samp></samp>
+    </label>
+</nav>

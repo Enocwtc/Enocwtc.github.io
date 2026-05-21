@@ -1,0 +1,14 @@
+<button onclick="{{generarDatosDePrueba(10000)}}">Generar Datos de Prueba</button>
+<h4>Cantidad de datos en memoria: {{usuarios.length}} con virtual scroll</h4>
+<div show="{{usuarios.length > 0}}" onscroll="{{onViewportScroll()}}" style="border:1px solid #ccc; height:300px; overflow-y:scroll; position:relative;">
+    <div style="{{heightStyle}}">
+        <ul id="lista-benchmark" loop="{{usuario in usuariosVisibles}}" style="{{listaStyle}}">
+            <li>
+                <span class="id">#{{usuario.id}}</span>
+                <strong>{{usuario.nombre}}</strong>
+                <span class="badge {{usuario.estado}}">{{usuario.estado}}</span>
+                <code>{{usuario.hash}}</code>
+            </li>
+        </ul>
+    </div>
+</div>

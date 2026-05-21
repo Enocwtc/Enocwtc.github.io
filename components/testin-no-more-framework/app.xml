@@ -1,0 +1,47 @@
+<div class="test-container">
+    <h1>Benchmark & Seguridad: <span class="highlight">MyVanilla v2</span></h1>
+    <p>Componente creado para estresar de forma pragmática la actualización estructural del Framework</p>
+
+    <!-- TEST 1: DEPENDENCE GRAPH (Grafo) -->
+    <div class="card">
+        <h2>🛠️ Test 1: Grafo de Dependencias (Concurrentes)</h2>
+        <p class="subtitle">Alterar 1 variable disparará en cadena reacciones independientes sobre "if", "show", "class" y "style" sin solaparse gracias al nuevo Arreglo iterativo en el Proxy.</p>
+        
+        <button onclick="{{ triggerState() }}">Alternar Estado Maestro</button>
+        
+        <div class="dep-container">
+            <div show="{{ superState }}" class="box box-show">Elemento 1 atado a "show"</div>
+            <div if="{{ superState }}" class="box box-if">Elemento 2 atado a "if" invisible (Nodos intercambiados)</div>
+            <div class="box {{ activeClass }}">Elemento 3 atado a la directiva reactiva de "class"</div>
+            <div class="box" style="{{ activeStyle }}">Elemento 4 atado a la matriz de "style" transpilado</div>
+        </div>
+    </div>
+
+    <!-- TEST 2: VULNERABILITY XSS (Seguridad Quirúrgica) -->
+    <div class="card card-red">
+        <h2>🛡️ Test 2: Bloqueo de Inyecciones XSS (Seguridad)</h2>
+        <p class="subtitle">En la versión vieja, el <b>innerHTML</b> habría incrustado esta variable y estallado el navegador con un <b>alert()</b> debido al tag <b>script</b>. A partir de hoy, debe dibujarse como texto inocuo.</p>
+        <div class="xss-zone">
+            Payload inyectado:<br/>
+            <code>{{ hackPayload }}</code>
+        </div>
+    </div>
+
+    <!-- TEST 3 y 4: LISTAS, RENDIMIENTO DOM Y EVENTOS GC -->
+    <div class="card">
+        <h2>🚀 Test 3 y 4: DOM Injections Quirúrgicas y GC Events</h2>
+        <p class="subtitle">Agrega nodos generados en el aire y prueba sus eventos dinámicos. Ya no existe <b>this.listEvents</b>. Presiona "Limpiar" para medir auto-liberación de Garbage Collector.</p>
+        
+        <button class="btn-green" onclick="{{ addToHeavyList() }}">+ Engordar lista (+10)</button>
+        <button class="btn-red" onclick="{{ cleanList() }}">- Purgar Lista y Memoria (GC)</button>
+
+        <ul class="perf-list">
+            <li for="{{ person in people }}" key="{{ person.id }}" class="perf-item">
+                <span class="user-id">#{{ person.id }}</span>
+                <span class="user-name">{{ person.name }}</span>
+                <!-- Aquí demostramos que event listeners nativos viven independientemente de los Strings de OuterHTML -->
+                <button class="btn-small" onclick="{{ testGCEvent(person) }}">Test Native Event</button>
+            </li>
+        </ul>
+    </div>
+</div>

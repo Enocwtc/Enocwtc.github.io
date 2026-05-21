@@ -1,0 +1,13 @@
+<div class="login-container">
+    <h1>Bienvenido</h1>
+    <p>Inicia sesión en tu cuenta para continuar</p>
+    <form>
+        <label for="username">Usuario</label>
+        <input type="text" id="username" name="username" placeholder="Tu nombre de usuario o correo" required="true" autocomplete="username" />
+            
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña secreta" required="true" autocomplete="current-password" />
+            
+        <button type="submit">Entrar</button>
+    </form>
+</div>

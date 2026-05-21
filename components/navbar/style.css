@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-elevated);
+    border-bottom: 1px solid var(--bc);
+    padding: var(--pd-sm) var(--pd-md);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+b {
+    color: var(--color-accent-warm);
+    font-size: var(--fs-h5);
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 0.2rem;
+}
+
+li {
+    display: flex;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: var(--ts-main);
+    font-size: var(--fs-p);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--br-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--bg-card);
+    color: var(--ts-hover);
+}
+
+button:active {
+    background-color: var(--bg-input);
+}
+
+label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 58px;
+    height: 17px;
+    margin-left: auto;
+}
+
+label input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+label i {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 30px;
+    bottom: 0;
+    background-color: var(--bg-input);
+    transition: .4s;
+    border-radius: 17px;
+    border: 1px solid var(--bc);
+}
+
+label i::before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 1px;
+    bottom: 1px;
+    background-color: var(--ts-muted);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+label input:checked+i {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--primary-color) 40%, transparent);
+}
+
+label input:checked+i::before {
+    transform: translateX(13px);
+    background-color: #ffffff;
+}
+
+label samp {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--ts-muted);
+    transition: .4s;
+    pointer-events: none;
+}
+
+label samp::after {
+    content: "Off";
+    color: var(--color-accent-warm);
+}
+
+label input:checked~samp {
+    color: var(--ts-main);
+}
+
+label input:checked~samp::after {
+    content: "On";
+    color: var(--color-accent-red);
+}

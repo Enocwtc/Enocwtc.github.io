@@ -1,0 +1,182 @@
+<div class="parser-test-container">
+<nಠ_ಠn-navbar></nಠ_ಠn-navbar>
+
+<button class="pt-button" onclick="{{sistemChange()}}">Uso de Style</button>
+<button class="pt-button" onclick="{{showHide()}}">Uso de Show</button>
+<button class="pt-button" onclick="{{sistemChangeClass()}}">Uso de Class</button>
+<button class="pt-button" onclick="{{ModifyFor()}}">Uso de For</button>
+<button class="pt-button" onclick="{{ModifyIf()}}">Uso de If</button>
+
+    <div class="pt-header" >
+        <h1 class="pt-title" >Parser Tests</h1>
+        <p class="pt-subtitle"  style="{{ myStyles }}">Desplegando el poder del MyVanilla Auto-Parser engine</p>
+    </div>
+
+    <h1 class="pt-title" >{{ nombreDeObjeto }}</h1>
+
+    <div class="pt-grid" >
+        <div class="pt-card" loop="{{(v, i) in list}}">
+            <h3 class="pt-card-title">loop {{v}}</h3>
+            
+        </div>
+    </div>
+    <div class="pt-grid" >
+        <!-- Card 1 -->
+        <div class="pt-card" show="{{ show }}">
+            <h3 class="pt-card-title">Variables Simples</h3>
+            <p class="pt-card-desc">Lectura básica de strings y números</p>
+            <div class="pt-card-result">
+                <span>this.sabello</span> = 
+                <span class="pt-value">{{ sabello }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>this.numeracion</span> = 
+                <span class="pt-value">{{ numeracion }}</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pt-card">
+            <h3 class="pt-card-title">Arrays Dinámicos</h3>
+            <p class="pt-card-desc">Accesos indexados con variables u objetos</p>
+            <div class="pt-card-result">
+                <span class="{{ testClass}}">list[user.admin.key]</span> = <br>
+                <span class="pt-value">{{ list[user.admin.key] }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>list[numeracion]</span> = <br>
+                <span class="pt-value">{{ list[numeracion] }}</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pt-card" show="{{ show }}">
+            <h3 class="pt-card-title">Matrices Multi-dimensional</h3>
+            <p class="pt-card-desc">Arrays multidimensionales con indexado interno</p>
+            <div class="pt-card-result">
+                <span>consumer.trabajo.status[1][index]</span> = <br>
+                <span class="pt-value">{{ consumer.trabajo.status[1][index] }}</span>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="pt-card">
+            <h3 class="pt-card-title">Propiedades de Matrices Deep</h3>
+            <div class="pt-card-result">
+                <span>user.trabajo.items[1][index].name</span> = <br>
+                <span class="pt-value">{{ user.trabajo.items[1][index].name }}</span>
+            </div>
+            <p class="pt-card-desc" style="margin-top: 10px;">Deep path discovery limits</p>
+            <div class="pt-card-result">
+                <span style="font-size: 0.85em">user.trabajitus.changas[1][2].cosas.randoms[2].fechas</span> = <br>
+                <span class="pt-value">{{ user.trabajitus.changas[1][2].cosas.randoms[2].fechas }}</span>
+            </div>
+        </div>
+
+        <!-- Card 5 (Wide) -->
+        <div class="pt-card pt-card-wide">
+            <h3 class="pt-card-title">Ejecuciones Inyectadas (Deep Function Calls)</h3>
+            <p class="pt-card-desc">Ejecución de un Method en matriz pasando string literal y accediendo a la red de promesas que retorna</p>
+            <div class="pt-card-result">
+                <span style="font-size: 0.85em">this.user.trabajo.items[1].cosas('LA CONCHA DE TU MADRE!!!').randoms[2].fechas</span> = <br>
+                <span class="pt-value">{{ this.user.trabajo.items[1].cosas('LA CONCHA DE TU MADRE!!!').randoms[2].fechas }}</span>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="pt-card">
+            <h3 class="pt-card-title">Base Functions</h3>
+            <p class="pt-card-desc">Métodos nativos y pase de variables como args</p>
+            <div class="pt-card-result">
+                <span>mssgExampleOBJ(sabello)</span> = <br>
+                <span class="pt-value">{{ mssgExampleOBJ(sabello) }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>mssg('Hola Perra!!!')</span> = <br>
+                <span class="pt-value">{{ mssg('Hola Perra!!!') }}</span>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="pt-card">
+            <h3 class="pt-card-title">Base Function Navigation</h3>
+            <p class="pt-card-desc">Navegar propiedades desde returns</p>
+            <div class="pt-card-result">
+                <span>mssgExampleOBJ(sabello).name</span> = <br>
+                <span class="pt-value">{{ mssgExampleOBJ(sabello).name }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>mssgFunctionWithProperties('El PEPE!').name</span> = <br>
+                <span class="pt-value">{{ mssgFunctionWithProperties('El PEPE!').name }}</span>
+            </div>
+        </div>
+
+        <!-- Card 8 (Wide) -->
+        <div class="pt-card pt-card-wide">
+            <h3 class="pt-card-title">Múltiples Renderizados Secuenciales</h3>
+            <p class="pt-card-desc">Evaluación del mismo objeto con atributos continuos</p>
+            <div class="pt-card-result" style="line-height:1.6">
+                <span>user.name :: age :: email :: trabajo...</span> = <br>
+                <span class="pt-value">{{ user.name }} | {{ user.age }} | {{ user.email }} | {{ user.trabajo.nombre }} | {{ user.trabajo.salario }} {{ user.trabajo.moneda }}</span>
+            </div>
+        </div>
+        
+        <!-- Card 9 (Extra Edge Case) -->
+        <div class="pt-card pt-card-wide">
+            <h3 class="pt-card-title">Resolución Robusta (Deep Object returns)</h3>
+            <p class="pt-card-desc">Extraer múltiples nodos de un mismo return on-the-fly</p>
+            <div class="pt-card-result" style="display: flex; justify-content: space-between; gap: 10px;">
+                <div>
+                   Salario: <br><span class="pt-value">{{ mssgFunctionWithProperties('El PEPE!').trabajo.salario }}</span>
+                </div>
+                <div>
+                   Moneda: <br><span class="pt-value">{{ mssgFunctionWithProperties('El PEPE!').trabajo.moneda }}</span>
+                </div>
+                <div>
+                   Cargo: <br><span class="pt-value">{{ mssgFunctionWithProperties('El PEPE!').trabajo.nombre }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="pt-card pt-card-wide">
+            <h3 class="pt-card-title">Reconocimiento de Parámetros en Funciones</h3>
+            <p class="pt-card-desc">El parser captura todos los argumentos como un string único. En la función se separan manualmente para soportar múltiples parámetros.</p>
+            <div class="pt-card-result">
+                <span>multipleParamsString('Hola', 'Mundo', 'Cruel')</span> = <br>
+                <span class="pt-value">{{ multipleParamsString('Hola', 'Mundo', 'Cruel') }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>multipleParamsNumbers('10', '20', '30')</span> = <br>
+                <span class="pt-value">{{ multipleParamsNumbers('10', '20', '30') }}</span>
+            </div>
+            <div class="pt-card-result" style="margin-top: 10px;">
+                <span>multipleParamsVariables('user.name', 'user.age', 'user.email')</span> = <br>
+                <span class="pt-value">{{ multipleParamsVariables(user.nam, user.age, user.email) }}</span>
+            </div>
+        </div>
+<!-- Suponiendo que items es: [{id: 1, nombre: 'Juan'}, {id: 2, nombre: 'Ana'}] -->
+<ul>
+  <li loop="{{ { id, nombre } in items }}">
+    Usuario #{{ id }}: {{ nombre }}
+  </li>
+</ul>
+<ul>
+  <li loop="{{ (item, index) of items }}">
+    Índice {{ index }} : Valor {{ item }}
+  </li>
+</ul>
+<ul>
+  <li loop="{{ item in items }}">
+    El valor es: {{ item }}
+  </li>
+</ul>
+
+    </div>
+</div>
+A partir de ahora, puedes usar cosas en tu HTML como:
+
+
+<div if="{{ !isLogged }}">Por favor inicia sesión</div>
+<div show="{{ role === 'admin' }}">Panel de control secreto</div>
+<div if="{{ edad >= 18 }}">Eres mayor de edad</div>

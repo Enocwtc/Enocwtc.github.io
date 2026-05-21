@@ -1,0 +1,69 @@
+/*
+ * Sistema Global de Paneles y Distribución (Layouts)
+ */
+
+/* Contenedor principal base */
+.layout-container {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    box-sizing: border-box;
+}
+
+/* 
+ * Layout: 3 Columnas (Izquierda, Centro, Derecha) 
+ * Útil para la distribución simétrica de la UI
+ */
+.layout-3-cols {
+    /* Las laterales toman 1 fracción, el centro toma más espacio (2 fracciones) */
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+/* Áreas del Layout de 3 columnas */
+.layout-3-cols .panel-left {
+    grid-column: 1;
+    /* Reservamos este espacio para un futuro sidebar de opciones */
+    border-radius: 12px;
+}
+
+.layout-3-cols .panel-center {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.layout-3-cols .panel-right {
+    grid-column: 3;
+    /* Reservamos este espacio para futuras notificaciones o detalles */
+    border-radius: 12px;
+}
+
+/* Responsividad: En pantallas móviles/tablets (max 900px), colapsar a 1 sola columna vertical */
+@media (max-width: 900px) {
+    .layout-3-cols {
+        grid-template-columns: 1fr;
+    }
+
+    /* El centro (login/contenido) tiene prioridad arriba */
+    .layout-3-cols .panel-left {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .layout-3-cols .panel-center {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .layout-3-cols .panel-right {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
