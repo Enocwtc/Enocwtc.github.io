@@ -1,5 +1,8 @@
 <button onclick="{{generarDatosDePrueba(10000)}}">Generar Datos de Prueba</button>
-<h4>Cantidad de datos en memoria: {{usuarios.length}} sin virtual scroll</h4>
+<h4>Amount of data in memory: {{usuarios.length}} without virtual scroll</h4>
+<div style="background: #2a0000; border: 1px solid #ff4444; color: #ff6666; padding: 12px; margin-bottom: 20px; font-family: monospace; border-radius: 4px;">
+  <strong>⚠️ PERFORMANCE WARNING:</strong> Rendering 100k physical nodes without Virtual Scroll will consume slightly over <strong>2.7GB of RAM</strong>. This brute-force test was designed to benchmark the V8 engine's stress limits and will freeze mobile devices due to memory exhaustion (OOM Killer). Proceed at your own risk.
+</div>
 <div if="{{usuarios.length > 0}}" style="border:1px solid #ccc; height:300px; overflow-y:scroll">
     <div style="{{heightAutoScroll()}}">
         <ul id="lista-benchmark" loop="{{usuario in usuarios}}">
