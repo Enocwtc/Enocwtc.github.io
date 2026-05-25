@@ -35,11 +35,10 @@
         <button class="btn-green" onclick="{{ addToHeavyList() }}">+ Engordar lista (+10)</button>
         <button class="btn-red" onclick="{{ cleanList() }}">- Purgar Lista y Memoria (GC)</button>
 
-        <ul class="perf-list">
-            <li for="{{ person in people }}" key="{{ person.id }}" class="perf-item">
+        <ul class="perf-list" loop="{{ person in people }}" >
+            <li class="perf-item">
                 <span class="user-id">#{{ person.id }}</span>
                 <span class="user-name">{{ person.name }}</span>
-                <!-- Aquí demostramos que event listeners nativos viven independientemente de los Strings de OuterHTML -->
                 <button class="btn-small" onclick="{{ testGCEvent(person) }}">Test Native Event</button>
             </li>
         </ul>

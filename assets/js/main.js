@@ -18,7 +18,7 @@ class ComponentEngine {
             console.log(`[MyVanilla Engine] Inicializando: ${window.AppConfig.name} v${window.AppConfig.version} | Autor: ${window.AppConfig.author}`);
         } catch (error) {
             console.warn("[MyVanilla Engine] Archivo app-id.json ausente. Restableciendo defaults.");
-            window.AppConfig = { prefix: "app-", name: "Vanilla Genérica", version: "1.0", author: "Desconocido" };
+            window.AppConfig = { prefix: "app-", name: "myVanilla", version: "0.0.1.0", author: "Alexander Rodriguez Enoc Mombru Ass Enocwtc" };
         }
 
         // 2. Establecer prefijo a escanear dinámicamente
