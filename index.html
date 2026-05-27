@@ -32,6 +32,7 @@
             <label for="tab-quickstart" class="nav-label">QuicK Start</label>
             <label for="tab-guide" class="nav-label">Guide</label>
             <label for="tab-tutorial" class="nav-label">Tutorial</label>
+            <a href="benchmark.html" class="nav-label" target="_blank" style="text-decoration: none;">Benchmark</a>
         </nav>
     </header>
 
@@ -44,16 +45,16 @@
                 <div class="sidebar-group">
                     <h4 class="sidebar-group-title">Introducción</h4>
                     <ul class="sidebar-links">
-                        <li><a href="#qs-bienvenida" class="sidebar-link active">Bienvenido</a></li>
+                        <li><a href="#qs-bienvenida" class="sidebar-link active">QuicK Start</a></li>
                         <li><a href="#qs-instalacion" class="sidebar-link">Instalación</a></li>
                         <li><a href="#qs-primeros-pasos" class="sidebar-link">Primeros Pasos</a></li>
-                        <li><a href="#qs-estructura" class="sidebar-link">Estructura básica</a></li>
+                        <li><a href="#qs-llamada-componentes" class="sidebar-link">Llamada de componentes</a></li>
                     </ul>
                 </div>
             </aside>
             <main class="content-reader">
                 <article class="content-wrapper">
-                    <h1>QuicK Start Guide</h1>
+                    <h1 id="qs-bienvenida">QuicK Start Guide</h1>
                     <p>Bienvenido a la guía de inicio rápido de <strong>myVanilla.js</strong>, el micro-framework
                         ultrarrápido diseñado para crear interfaces web dinámicas con la menor cantidad de dependencias
                         posibles y un rendimiento nativo impecable.</p>
@@ -78,7 +79,7 @@
 <span class="hljs-built_in">git</span> clone https://github.com/enoc-software/myvanilla-js.git</code></pre>
 
                     <h2 id="qs-primeros-pasos">Primeros Pasos</h2>
-                    <p>Insertamos la etiqueta JavaScript</p>
+                    <p>Importamos la etiqueta JavaScript</p>
 
                     <pre><code>&lt;script type="module" src="assets/js/myVanilla-js/main.js"&gt;&lt;/script&gt;</code></pre>
 
@@ -125,7 +126,7 @@
                     <h1>Guide & Concepts</h1>
                     <p>Esta guía proporciona una visión profunda de los principios arquitectónicos y los bloques de
                         construcción fundamentales que conforman <strong>myVanilla.js</strong>.</p>
-                    <p>Me inspite en como algunos frameworks crean extructura de datos, como si fuera un standar de la
+                    <p>Me inspiré en cómo algunos frameworks crean estructura de datos, como si fuera un standar de la
                         industria facil para que los usuarios familiarizados lo pueda usar.</p>
                     <p>Los componentes se implementan de forma nativa en el HTML, usando el prefijo configurado
                         (<code>nಠ_ಠn-</code> por defecto) seguido del nombre del componente, en minúsculas y separados
@@ -155,7 +156,7 @@
                         pretenda codear.</p>
                     <p>Cada componente se renderiza y se cachea. y es reactivo a la hora de acceder a los atributos
                         como <strong>Props</strong>, <strong>Data</strong> , <strong>Methods</strong></p>
-                    <p>Tambien trabaja con los siclos de vida de los componentes.
+                    <p>También trabaja con los ciclos de vida de los componentes.
                         <strong>Created</strong>, <strong>Mounted</strong> , <strong>Updated</strong>
                     </p>
 
@@ -214,7 +215,7 @@
                         <tbody>
                             <tr>
                                 <td class="directives">{{"cualquier texto"}}</td>
-                                <td>Solo renderiza texto plano entre comillas dobles</b></td>
+                                <td>Solo renderiza texto plano entre comillas dobles</td>
                                 <td><code class="example">&lt;span&gt;{{" cualquier texto "}}&lt;/span&gt;</code></td>
                                 <td><code>No deje espacios en blanco entre las llaves <b>{ { } }</b> ni como <b>{{ "" }}</b></code>
                                 </td>
