@@ -4,40 +4,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla JS System</title>
-    <meta name="description" content="A simple Vanilla JS application">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/panels.css">
+    <title>myVanilla.js - Documentación</title>
+    <!-- CSS Dependencies -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/template-001.css">
 </head>
 
 <body>
 
-    <main class="layout-container layout-3-cols">
-        <!-- Columna Izquierda (Reservada) <nಠ_ಠn-navbar></nಠ_ಠn-navbar> -->
-        <section class="panel-left">
+    <!-- CSS Navigation Tabs State Controls (Hidden) -->
+    <input type="radio" name="main-tab" id="tab-quickstart" class="tab-input" checked>
+    <input type="radio" name="main-tab" id="tab-guide" class="tab-input">
+    <input type="radio" name="main-tab" id="tab-tutorial" class="tab-input">
 
+
+    <!-- Top Navigation Header -->
+    <header class="top-header">
+        <div class="logo-container">
+            <svg class="logo-icon" viewBox="0 0 24 24">
+                <path d="M12 2L2 22h20L12 2zm0 4.5L18.5 19h-13L12 6.5z" />
+            </svg>
+
+            <span>myVanilla<span class="logo-txt-accent"><samp class="logo-txt-accent-spot">.</samp>js</span></span>
+        </div>
+
+        <nav class="top-nav">
+            <label for="tab-quickstart" class="nav-label">QuicK Start</label>
+            <label for="tab-guide" class="nav-label">Guide</label>
+            <label for="tab-tutorial" class="nav-label">Tutorial</label>
+        </nav>
+    </header>
+
+    <!-- Main Workspace Page Container -->
+    <div class="page-container">
+
+        <!-- ================= SECTION: QUICK START ================= -->
+        <section class="section-panel" id="section-quickstart">
+            <aside class="sidebar">
+                <div class="sidebar-group">
+                    <h4 class="sidebar-group-title">Introducción</h4>
+                    <ul class="sidebar-links">
+                        <li><a href="#qs-bienvenida" class="sidebar-link active">Bienvenido</a></li>
+                        <li><a href="#qs-instalacion" class="sidebar-link">Instalación</a></li>
+                        <li><a href="#qs-primeros-pasos" class="sidebar-link">Primeros Pasos</a></li>
+                        <li><a href="#qs-estructura" class="sidebar-link">Estructura básica</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="content-reader">
+                <article class="content-wrapper">
+                    <h1>QuicK Start Guide</h1>
+                    <p>Bienvenido a la guía de inicio rápido de <strong>myVanilla.js</strong>, el micro-framework
+                        ultrarrápido diseñado para crear interfaces web dinámicas con la menor cantidad de dependencias
+                        posibles y un rendimiento nativo impecable.</p>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                            </svg>
+                            Nota de Diseño
+                        </div>
+                        <p>myVanilla.js persigue un enfoque minimalista: sin compilation step obligatorio, sin Virtual
+                            DOM pesado, y con reactividad basada en Proxies nativos.</p>
+                    </div>
+
+                    <h2 id="qs-instalacion">Instalación</h2>
+                    <p>Para comenzar a utilizar myVanilla en tu proyecto actual, simplemente agrega el framework
+                        mediante una clonacion del repositorio.</p>
+
+                    <pre><code><span class="hljs-comment"># Clonar el repositorio desde GitHubaskd</span>
+<span class="hljs-built_in">git</span> clone https://github.com/enoc-software/myvanilla-js.git</code></pre>
+
+                    <h2 id="qs-primeros-pasos">Primeros Pasos</h2>
+                    <p>Insertamos la etiqueta JavaScript</p>
+
+                    <pre><code>&lt;script type="module" src="assets/js/myVanilla-js/main.js"&gt;&lt;/script&gt;</code></pre>
+
+                    <h2 id="qs-llamada-componentes">Llamada a componentes</h2>
+                    <p>Por defecto, los componentes se llaman en el HTML utilizando el prefijo configurado
+                        (<code>app-</code> por defecto) seguido del nombre del componente, en minúsculas y separados por
+                        un guion (formato kebab-case):</p>
+
+                    <pre><code>&lt;app-mi-componente&gt;&lt;/app-mi-componente&gt;</code></pre>
+                    <p>Es fundamental que myVanilla tiene un mequeño archivo de configuración json en la raiz del repo.
+                        <code>app-id.json</code>
+                    </p>
+                    <p>Por defecto se utiliza como prefijo : nಠ_ಠn para llamar el componentes </p>
+                    <pre><code>&lt;nಠ_ಠn-mi-mi-componente&gt;&lt;/nಠ_ಠn-mi-componente&gt;</code></pre>
+                    <div class="footer-nav">
+                        <a href="#" class="footer-btn" style="visibility: hidden;">
+                            <span>Anterior</span>
+                            <span class="footer-btn-label"></span>
+                        </a>
+                        <label for="tab-guide" class="footer-btn next">
+                            <span>Siguiente</span>
+                            <span class="footer-btn-label">Framework Guide</span>
+                        </label>
+                    </div>
+                </article>
+            </main>
         </section>
 
-        <!-- Columna Central (Componente Principal) -->
-        <section class="panel-center">
-            <!-- 
-            <nಠ_ಠn-parser-test id="parserTest" nombreDeObjeto="creo que es algo muy dificl bro!"></nಠ_ಠn-parser-test>
-            <nಠ_ಠn-testin-no-more-framework></nಠ_ಠn-testin-no-more-framework>
-            <nಠ_ಠn-complete-form></nಠ_ಠn-complete-form>-->
-            <nಠ_ಠn-benchmark-list></nಠ_ಠn-benchmark-list>
-            <nಠ_ಠn-virtual-scroll></nಠ_ಠn-virtual-scroll>
-            <nಠ_ಠn-testin-no-more-framework></nಠ_ಠn-testin-no-more-framework>
+
+        <!-- ================= SECTION: GUIDE ================= -->
+        <section class="section-panel" id="section-guide">
+            <aside class="sidebar">
+                <div class="sidebar-group">
+                    <h4 class="sidebar-group-title">Conceptos</h4>
+                    <ul class="sidebar-links">
+                        <li><a href="#g-core" class="sidebar-link active">Core Philosophy</a></li>
+                        <li><a href="#g-reactivity" class="sidebar-link">Reactivity System</a></li>
+                        <li><a href="#g-templates" class="sidebar-link">Directivas</a></li>
+                    </ul>
+                </div>
+            </aside>
+            <main class="content-reader">
+                <article class="content-wrapper">
+                    <h1>Guide & Concepts</h1>
+                    <p>Esta guía proporciona una visión profunda de los principios arquitectónicos y los bloques de
+                        construcción fundamentales que conforman <strong>myVanilla.js</strong>.</p>
+                    <p>Me inspite en como algunos frameworks crean extructura de datos, como si fuera un standar de la
+                        industria facil para que los usuarios familiarizados lo pueda usar.</p>
+                    <p>Los componentes se implementan de forma nativa en el HTML, usando el prefijo configurado
+                        (<code>nಠ_ಠn-</code> por defecto) seguido del nombre del componente, en minúsculas y separados
+                        por
+                        un guion (formato kebab-case).</p>
+                    <p>
+                        <code>&lt;nಠ_ಠn-mi-componente&gt;&lt;/nಠ_ಠn-mi-componente&gt;</code>
+                    </p>
+                    <div class="callout callout-warning">
+                        <div class="callout-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                            </svg>
+                            Nota :
+                        </div>
+                        <p>El prefijo por defecto es <code>nಠ_ಠn-</code>.Puede ser cambiado en el archivo de
+                            configuración <code>app-id.json</code>.
+                        </p>
+                    </div>
+                    <p>
+                        No es precompilado, esto quiere decir que el código es interpretado en tiempo de ejecución.
+                        Esto permite una mayor flexibilidad y agilidad en el desarrollo, ya que los cambios pueden ser
+                        aplicados y probados inmediatamente sin necesidad de un proceso de compilación.
+                    </p>
+                    <p>No usa archivos fuera del estandar de la web. y no pretende alterar la forma natural como uno
+                        pretenda codear.</p>
+                    <p>Cada componente se renderiza y se cachea. y es reactivo a la hora de acceder a los atributos
+                        como <strong>Props</strong>, <strong>Data</strong> , <strong>Methods</strong></p>
+                    <p>Tambien trabaja con los siclos de vida de los componentes.
+                        <strong>Created</strong>, <strong>Mounted</strong> , <strong>Updated</strong>
+                    </p>
+
+                    <h2 id="g-reactivity">Reactivity System</h2>
+                    <p>A diferencia de otros frameworks que rastrean cambios comparando árboles DOM virtuales completos,
+                        myVanilla usa <code>Proxy</code> de ES6 para interceptar modificaciones directamente en el
+                        estado del objeto.</p>
+                    <p><code>DobleParseaArrebatoCremoso.js</code> vincula el parceo del docuento xHtml con el objeto
+                        Proxy creado por
+                        <code>GargantaProfunda.js</code>
+                    </p>
+                    <p>El objeto nativo del componente al integrarlo al navegador guarda un falso virtual-dom solo de
+                        los elementos que haga solicitud de datos.</p>
+                    <p>Dicho falso virtual-Dom se referencia en la detecion del Proxy a la hora de detectar que el dato
+                        fua modificado.</p>
+                    <p>Si el dato se modifica un elemento se ve impactado directamente sin necesidad de recargar el
+                        componente, ni el resto del documento ya que solo esta contenido dentro de esa etiqueta html.
+                    </p>
+                    <p>100% Rerctivo Eficiente NO Compilado</p>
+
+                    <div class="callout callout-danger">
+                        <div class="callout-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                            </svg>
+                            Peligro
+                        </div>
+                        <p>Hay una extructura de dato que puede ser cambiadas, y se toma en cuenta para el prototipado
+                            del
+                            componente.</p>
+                        <p>El nombre de la etiqueta que llama al componente <code>app-mi-componente</code> es la ruta de
+                            la carpeta
+                            del
+                            componente
+                            <code>componets/mi-componente/app.xml</code> , <code>componets/mi-componente/index.js</code>
+                            ,
+                            <code>componets/mi-componente/style.css</code>
+                        </p>
+                    </div>
+
+                    <h2 id="g-templates">Directivas del Template</h2>
+                    <p>Las siguientes directivas te permiten estructurar la lógica directamente en tus atributos xHTML:
+                    </p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="directives">Directiva</th>
+                                <th>Descripciónes</th>
+                                <th>Ejemplos</th>
+                                <th><b>Consideraciones</b></th>
+                                <th><b>Notaciones</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="directives">{{"cualquier texto"}}</td>
+                                <td>Solo renderiza texto plano entre comillas dobles</b></td>
+                                <td><code class="example">&lt;span&gt;{{" cualquier texto "}}&lt;/span&gt;</code></td>
+                                <td><code>No deje espacios en blanco entre las llaves <b>{ { } }</b> ni como <b>{{ "" }}</b></code>
+                                </td>
+                                <td><code>cualquier texto</code></td>
+                            </tr>
+                            <tr>
+                                <td class="directives">if="{{condicion}}"</td>
+                                <td>Renderizado condicional basado en la expresión true/false. <code>"condicion"</code>
+                                    es una propiedad de un
+                                    objeto o puede ser un metodo. que retorne true o false.</td>
+                                <td><code class="example">&lt;div if="{{isVisible}}";...&lt;/div&gt;</code></td>
+                                <td>puede evaluar &gt; , &lt; , &gt;= , &lt;= ,&nbsp; !== , != , || , && </td>
+                                <td><code> Si la condicion es verdadera se renderiza el elemento y se incluye en el DOM.
+                                    Pero si es falsa se crea un nodo anchor if y no se renderiza. Pero si tiene el atributo data-anchor = "false"
+                                    entonce no se crea el nodo anchor ni se renderiza el elemento. Y pierde toda la reactividad.
+                                    </code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="directives">show="{{condicion}}"</td>
+                                <td>Renderizado condicional basado en display none / display flex.
+                                    <code>"condicion"</code> es una propiedad de un objeto o puede ser un metodo.
+                                </td>
+                                <td><code class="example">&lt;div show="{{isVisible}}"&gt;...&lt;/div&gt;</code></td>
+                                <td><code>&lt;div show="{{isVisible}}"&gt;...&lt;/div&gt;</code></td>
+                                <td>
+                                    <p>El elemento siempre esta en el nodo. no se crea no se destuye. solo modifica el
+                                        css display : none ; </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="directives">module="{{obj.propiedad}}"</td>
+                                <td>
+                                    Atributo que vincula un evento de entrada tipo input y que conecta con el proxy
+                                    del objeto
+                                </td>
+                                <td><code class="example">
+
+                                         &lt;input module="{{usuario.nombre}}"/&gt;</code>
+                                </td>
+                                <td><code>
+                                    &lt;p&gt;{{usuario.nombre}}&lt;/p&gt;
+                                    &lt;input module="{{usuario.nombre}}"/&gt;</code>
+                                </td>
+                                <td>
+                                    <p>Es la forma en que se declara la reactividad de los elementos.</p>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="footer-nav">
+                        <label for="tab-quickstart" class="footer-btn">
+                            <span>Anterior</span>
+                            <span class="footer-btn-label">QuicK Start</span>
+                        </label>
+                        <label for="tab-tutorial" class="footer-btn next">
+                            <span>Siguiente</span>
+                            <span class="footer-btn-label">Tutorial</span>
+                        </label>
+                    </div>
+                </article>
+            </main>
         </section>
 
-        <!-- Columna Derecha (Reservada) -->
-        <section class="panel-right">
+
+        <!-- ================= SECTION: TUTORIAL ================= -->
+        <section class="section-panel" id="section-tutorial">
+            <aside class="sidebar">
+                <div class="sidebar-group">
+                    <h4 class="sidebar-group-title">Pasos del Tutorial</h4>
+                    <ul class="sidebar-links">
+                        <li><a href="#t-1" class="sidebar-link active">1. Configurar Entorno</a></li>
+
+                    </ul>
+                </div>
+            </aside>
+            <main class="content-reader">
+                <article class="content-wrapper">
+                    <div class="tutorial-grid">
+
+                        <div class="tutorial-content">
+                            <h1>Tutorial: trabajando con myVanilla</h1>
+                            <p>Explicacion simple y sufuciente para entender como trabaja con myVanilla</p>
+
+                            <h2>Paso 1: Configurando componentes</h2>
+                            <p>En myVanilla todo esta basado en componentes. Entonces lo primero que debemos hacer es
+                                crear un directorio en la carpeta components, el nombre del directorio sera el nombre de
+                                tu componente.</p>
+                            <p>El directorio debe contener un archivo app.xml , index.js style.css</p>
+                            <p>El sistema lo interpreto como un todo del componente. y la reactividad y el sistema de
+                                reactividad queda en dicho componente.</p>
+                            <p>A modo de ejemplo es como que cada componente es reactivo por su cuenta y tiene su propio
+                                mini-virtual-doom-fake.</p>
+                        </div>
+
+                        <div class="tutorial-code-wrapper"
+                            style="background-image: url('./assets/img/tutorial-component-folder.png');width: 250px;height: 250px;position: relative;float: right;">
+                        </div>
+
+                        <div class="tutorial-content">
+
+                            <h3>Archivo app.xml</h3>
+                            <p>Es un arachivo donde vamos a definir el template del componente. y tambien la reactividad
+                            </p>
+                        </div>
+
+                        <div class="tutorial-code-wrapper">
+                            <div class="tutorial-code">
+                                <div class="code-header">
+                                    <span class="code-dot red"></span>
+                                    <span class="code-dot yellow"></span>
+                                    <span class="code-dot green"></span>
+                                    <span class="code-filename">app.xml</span>
+                                </div>
+                                <pre><code><span class="hljs-comment">&lt;!-- app.xml --&gt;</span>
+<span class="hljs-keyword">&lt;div</span> <span class="hljs-string">show="</span><span class="hljs-title">{{usuarios.length &gt; 0}}</span><span class="hljs-string">"</span> <span class="hljs-string">onscroll="</span><span class="hljs-title">{{onViewportScroll()}}</span><span class="hljs-string">"</span> <span class="hljs-string">style="border:1px solid #ccc; height:300px; overflow-y:scroll; position:relative;"</span><span class="hljs-keyword">&gt;</span>
+    <span class="hljs-keyword">&lt;div</span> <span class="hljs-string">style="</span><span class="hljs-title">{{heightStyle}}</span><span class="hljs-string">"</span><span class="hljs-keyword">&gt;</span>
+        <span class="hljs-keyword">&lt;ul</span> <span class="hljs-string">id="lista-benchmark"</span> <span class="hljs-string">loop="</span><span class="hljs-title">{{usuario in usuariosVisibles}}</span><span class="hljs-string">"</span> <span class="hljs-string">style="</span><span class="hljs-title">{{listaStyle}}</span><span class="hljs-string">"</span><span class="hljs-keyword">&gt;</span>
+            <span class="hljs-keyword">&lt;li&gt;</span>
+                <span class="hljs-keyword">&lt;span</span> <span class="hljs-string">class="id"</span><span class="hljs-keyword">&gt;</span>#<span class="hljs-title">{{usuario.id}}</span><span class="hljs-keyword">&lt;/span&gt;</span>
+                <span class="hljs-keyword">&lt;strong&gt;</span><span class="hljs-title">{{usuario.nombre}}</span><span class="hljs-keyword">&lt;/strong&gt;</span>
+                <span class="hljs-keyword">&lt;span</span> <span class="hljs-string">class="badge </span><span class="hljs-title">{{usuario.estado}}</span><span class="hljs-string">"</span><span class="hljs-keyword">&gt;</span><span class="hljs-title">{{usuario.estado}}</span><span class="hljs-keyword">&lt;/span&gt;</span>
+                <span class="hljs-keyword">&lt;code&gt;</span><span class="hljs-title">{{usuario.hash}}</span><span class="hljs-keyword">&lt;/code&gt;</span>
+            <span class="hljs-keyword">&lt;/li&gt;</span>
+        <span class="hljs-keyword">&lt;/ul&gt;</span>
+    <span class="hljs-keyword">&lt;/div&gt;</span>
+<span class="hljs-keyword">&lt;/div&gt;</span></code></pre>
+
+                            </div>
+                        </div>
+
+                        <div class="tutorial-content">
+
+                            <h3>Archivo index.js</h3>
+                            <p>Definimos el area como manejamos los datos.</p>
+                            <p>Te resulta parecido?</p>
+                        </div>
+
+                        <div class="tutorial-code-wrapper">
+                            <div class="tutorial-code">
+                                <div class="code-header">
+                                    <span class="code-dot red"></span>
+                                    <span class="code-dot yellow"></span>
+                                    <span class="code-dot green"></span>
+                                    <span class="code-filename">index.js</span>
+                                </div>
+                                <pre><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> <span class="hljs-title">Data</span> = () =&gt; {
+    <span class="hljs-keyword">return</span> {
+        sabello: <span class="hljs-string">""</span>,
+        numeracion: <span class="hljs-number">42</span>,
+        index: <span class="hljs-number">0</span>,
+        list: [],
+        user: {
+            name: <span class="hljs-string">""</span>,
+            age: <span class="hljs-number">0</span>,
+            email: <span class="hljs-string">""</span>,
+            admin: { key: <span class="hljs-number">1</span>, key2 : <span class="hljs-number">2</span>, key3 : <span class="hljs-number">3</span> },
+            trabajo: {
+                nombre: <span class="hljs-string">""</span>,
+                salario: <span class="hljs-string">""</span>,
+                moneda: <span class="hljs-string">""</span>,
+            },     
+        }
+    }
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title">Props</span> = {
+    nombreDeObjeto: {
+        type: <span class="hljs-title">Object</span>,
+        default: {}
+    }
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title">Created</span> = <span class="hljs-keyword">function</span> () {
+
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title">Mounted</span> = <span class="hljs-keyword">function</span> () {
+
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title">Unmounted</span> = <span class="hljs-keyword">function</span> () {
+
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title">Methods</span> = {
+    
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="tutorial-content">
+                            <h3>Archivo style.css</h3>
+                            <p>Definimos el area como manejamos de los estilos.</p>
+                            <p>Es un simple archivo css pero de momento los estilos estan anclados a cada componente.
+                                solo te puede pasar variables css de manera global.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </main>
         </section>
-    </main>
-    <script type="module" src="assets/js/main.js"></script>
+
+    </div>
+
 </body>
-
-<script type="module">
-
-</script>
 
 </html>

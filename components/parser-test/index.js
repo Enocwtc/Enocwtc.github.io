@@ -67,13 +67,13 @@ export const Props = {
         default: {}
     }
 }
-export const created = function () {
+export const Created = function () {
     console.log('Componente creado');
 }
-export const mounted = function () {
+export const Mounted = function () {
     console.log('Componente montado');
 }
-export const unmounted = function () {
+export const Unmounted = function () {
     console.log('Componente desmontado');
 }
 

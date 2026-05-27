@@ -45,7 +45,7 @@ myVanilla.js includes a native `<nಠ_ಠn-virtual-scroll>` component. It keeps 
 Don't believe my screenshots, clone this and open Profiler on your own machine.
 
 ```bash
-git clone [https://github.com/your-username/myVanilla.js.git](https://github.com/Enocwtc/myVanilla.js.git)
+git clone (https://github.com/Enocwtc/myVanilla.js.git)
 cd myVanilla.js
 # There's no `npm install`. There's no `npm run build`. It's Vanilla.
 
@@ -54,6 +54,8 @@ cd myVanilla.js
 ## 📊 Production Benchmarks (100k Nodes)
 
 These metrics were captured directly from the live production environment on GitHub Pages using Chrome DevTools Performance Profiler. 
+
+> 🚀 **[Try the Live Benchmark here!](https://enocwtc.github.io/benchmark.html)** or open the local file [`benchmark.html`](./benchmark.html) to run the tests on your machine.
 
 ### Brute-Force Rendering (Without Virtual Scroll)
 *Injecting 100,000 physical elements directly into the DOM to stress-test the JIT compiler.*
