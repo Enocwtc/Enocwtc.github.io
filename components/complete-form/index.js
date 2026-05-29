@@ -1,6 +1,6 @@
 export const Data = () => {
     return {
-        formTitle: "Registro de Usuario",
+        formTitle: "New Reactive Form myVanilla.js",
         user: {
             id: "usr_998877",
             name: "Enoc Softwarer",
@@ -8,7 +8,7 @@ export const Data = () => {
             age: 30,
             bio: "Entusiasta de Vanilla JS y creador de frameworks potentes sin dependencias. Me encanta el diseño moderno y las arquitecturas limpias.",
             preferences: {
-                color: "#6366f1", // Un tono índigo muy elegante
+                color: "var(--myVanilla-c-red)", // Un tono índigo muy elegante
                 subscribe: true,
                 volume: 75
             }
@@ -33,7 +33,7 @@ export const Data = () => {
             },
             email: {
                 type: "email",
-                value: "enocometalero@gmail.com",
+                value: "enocwtc@gmail.com",
                 placeholder: "ejemplo@correo.com",
                 required: true,
                 autocomplete: "email",
@@ -56,7 +56,7 @@ export const Data = () => {
             },
             textarea: {
                 type: "textarea",
-                value: "",
+                value: "sabelo",
                 placeholder: "",
                 required: true,
                 error: ""
@@ -139,7 +139,7 @@ export const Data = () => {
             },
             services: {
                 type: "checkbox",
-                value: "",
+                value: ['barman', 'limpieza'],
                 placeholder: "",
                 options: [
                     'cocinero',
@@ -148,7 +148,6 @@ export const Data = () => {
                     'limpieza',
                     'valet'
                 ],
-                checked: ['barman', 'limpieza']
             }
         }
     }
@@ -159,7 +158,7 @@ export const Methods = {
         return Object.keys(object);
     },
     isCheckedCompare(
-        camparadores,  //Es un array con una lista de valores que esta pre seleccionados.
+        camparadores = [],  //Es un array con una lista de valores que esta pre seleccionados.
         comparado  //Es un string y es el valor a comparar.
     ) {
         return camparadores.includes(comparado) ? true : false;

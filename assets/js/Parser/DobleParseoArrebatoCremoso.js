@@ -26,7 +26,7 @@ export class DobleParseoArrebatoCremoso {
                             }
                         });
                     }
-                    
+
                     if (hasReactiveAttr || hasLoop) {
                         operations.push({
                             isText: false,
@@ -52,7 +52,7 @@ export class DobleParseoArrebatoCremoso {
         const traverse = (currentNodes) => {
             Array.from(currentNodes).forEach((child) => {
                 let op = operations[opIndex++];
-                
+
                 if (op) {
                     if (op.isText) {
                         let text = op.originalText;
@@ -849,17 +849,44 @@ export class DobleParseoArrebatoCremoso {
     }
     moduleValue(nodo, value, bodyPath, objectValue) {
         //Si nodo es un input o textarea
-        if (nodo.tagName == 'INPUT' || nodo.tagName == 'TEXTAREA') {
-            // 1. Asignar el valor inicial a la vista para que el input no esté vacío
-            nodo.value = value !== undefined ? value : '';
+        if (nodo.tagName == 'INPUT' || nodo.tagName == 'TEXTAREA' || nodo.tagName == 'SELECT') {
+            const isCheckbox = nodo.type === 'checkbox';
+            const isRadio = nodo.type === 'radio';
+
+            // 1. Asignar el valor inicial a la vista
+            if (isCheckbox) {
+                nodo.checked = Array.isArray(value) ? value.includes(nodo.value) : !!value;
+            } else if (isRadio) {
+                nodo.checked = value === nodo.value;
+            } else {
+                nodo.value = value !== undefined ? value : '';
+            }
+
             // 2. Escuchar cuando el usuario escriba o modifique el input
             if (nodo.addEventListener) {
-                nodo.addEventListener('input', (e) => {
-                    //console.log(e, 'evento');
+                const eventType = (isCheckbox || isRadio) ? 'change' : 'input';
+                nodo.addEventListener(eventType, (e) => {
 
-                    let newValue = e.target.value;
+
+                    let newValue;
+
+                    newValue = e.target.value;
+                    //SI es un checkbox, y su valor Array
+                    //El atributo vaue es un array. todos lista chechbox genera un array.
+                    if (nodo.type === 'checkbox') {
+                        //El attribute value es un array, crea una nueva lista
+                        const valueListCheckInputs = new Array(value)
+                        if (Array.isArray(value)) {
+                            //Si el checkbox ya esta marcado, se lo desmarca, si no se lo marca.
+                            valueListCheckInputs[0].includes(e.target.value) ? valueListCheckInputs[0].splice(value.indexOf(e.target.value), 1) : valueListCheckInputs[0].push(e.target.value);
+                            newValue = valueListCheckInputs[0];
+                        }
+                    }
+                    console.log(e.target.value, 'e.target.value');
+
+
+
                     try {
-
                         // 3. Crear una función dinámica que inyecte el nuevo valor.
                         // La instrucción "with(context)" permite que el string interprete
                         // variables como "form" o "v" buscando dentro de tu objectValue.
@@ -868,13 +895,8 @@ export class DobleParseoArrebatoCremoso {
                                 ${bodyPath} = val;
                             }
                         `);
-
                         // 4. Ejecutar la función y sobreescribir el objeto origen
                         setPathValue(objectValue, newValue);
-
-                        // Opcional: Si tu framework tiene alguna función para forzar 
-                        // la reactividad y actualizar el resto del DOM, deberías llamarla aquí.
-                        // this.thisComponent.update(); 
                     } catch (error) {
                         console.error("Error al actualizar la ruta origen del módulo:", error);
                     }

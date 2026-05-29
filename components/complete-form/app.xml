@@ -1,7 +1,7 @@
 <div class="complete-form-wrapper">
     <div class="complete-form-header">
         <h2>{{ formTitle }}</h2>
-        <p>Por favor, completa todos los campos requeridos para continuar.</p>
+        <p>Rendered a dynamic responsive UI using only a JSON object and pure Vanilla JS. Try to break it and roast my useless existence.</p>
     </div>
 
     <form class="premium-form" onsubmit="event.preventDefault();"  loop="{{(v, i) in getKeys(form) }}">
@@ -10,7 +10,7 @@
         class       =   "form-group slide-in"
         data-anchor = "false"
         >
-        <span >{{v}} : {{ form[v].value }}</span>
+        <span >{{v}} : {{form[v].value}} </span>
             <label >{{ form[v].type }}</label>
             <input 
                 type        =   "{{ form[v].type }}" 
@@ -25,15 +25,16 @@
             class       = "form-group slide-in"
             data-anchor = "false"
             >
-            <label >{{ v }}</label>
+            <label >{{ v }} : {{form[v].selected}}</label>
             <select 
-            class="form-group-input-options" 
-            loop="{{(c, idx) in form[v].options}}"
-            name        = "{{ v }}">
+            class       = "form-group-input-options" 
+            name        = "{{ v }}"
+            module      = "{{ form[v].selected }}"
+            loop        = "{{(c, idx) in form[v].options}}">
                 <option 
-                    value       = "{{c}}"
-                    selected    = "{{ form[v].selected === c }}">{{ c }}
-                </option>
+                    value       = "{{ c }}"
+                    selected    = "{{ form[v].selected === c }}"
+                >{{ c }}</option>
             </select>
         </div>
 
@@ -42,13 +43,14 @@
             class       = "form-group slide-in"
             data-anchor = "false"
             >
-            <label >{{ v }}</label>
+            <label >{{ v }} : {{ form[v].value }}</label>
             <div class="form-group-input-options" loop="{{(c, idx) in form[v].options}}">
                 <label >{{ c }}
                     <input 
                         type        = "{{form[v].type}}"
                         name        = "{{ v }}"
-                        checked     = "{{ isCheckedCompare(form[v].checked, c) }}"
+                        module      = "{{ form[v].value }}"
+                        checked     = "{{ isCheckedCompare(form[v].value, c) }}"
                         value       = "{{c}}">
                 </label>
             </div>
@@ -59,12 +61,14 @@
             class       = "form-group slide-in"
             data-anchor = "false"
             >
-            <label >{{ v }}</label>
+            <label >{{ v }} : {{ form[v].checked }}</label>
             <div class="form-group-input-options" loop="{{(c, idx) in form[v].options}}">
                 <label >{{ c }}
                     <input 
                         type        = "{{form[v].type}}"
                         name        = "{{ v }}"
+                        module      = "{{ form[v].checked }}"
+                        value       = "{{c}}"
                         checked     = "{{ form[v].checked === c  }}">
                 </label>
             </div>
@@ -75,12 +79,12 @@
             class   =  "form-group slide-in"
             data-anchor = "false"
             >
-            <label >{{ v }}</label>
+            <label >{{ v }} : {{form[v].value}}</label>
             <textarea 
                 type        =   "{{ form[v].type }}" 
                 placeholder =   "{{ form[v].placeholder }}" 
                 required    =   "{{ form[v].required }}"
-                value       =   "{{ form[v].value }}"></textarea>
+                module       =   "{{ form[v].value }}"></textarea>
         </div>
 
     </form>
