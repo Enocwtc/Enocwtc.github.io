@@ -1,0 +1,162 @@
+:host {
+    display: block;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.wysiwyg-container {
+    background: var(--myVanilla-c-bg, #ffffff);
+    border: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 20px 0;
+}
+
+.wysiwyg-container:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: var(--myVanilla-c-brand-light, #549ced);
+}
+
+.wysiwyg-header {
+    background: linear-gradient(135deg, var(--myVanilla-c-bg-soft, #f9f9f9) 0%, var(--myVanilla-c-bg-mute, #f1f1f1) 100%);
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+}
+
+.wysiwyg-header h3 {
+    margin: 0 0 4px 0;
+    color: var(--myVanilla-c-text-1, #213547);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.wysiwyg-header p {
+    margin: 0;
+    color: var(--myVanilla-c-text-2, rgba(60, 60, 60, 0.7));
+    font-size: 0.875rem;
+}
+
+.wysiwyg-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--myVanilla-c-bg-soft, #f9f9f9);
+    border-bottom: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+    align-items: center;
+}
+
+.wysiwyg-btn {
+    background: var(--myVanilla-c-bg, #ffffff);
+    border: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--myVanilla-c-text-1, #213547);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+}
+
+.wysiwyg-btn:hover {
+    background: var(--myVanilla-c-brand-light, #549ced);
+    color: var(--myVanilla-c-white, #ffffff);
+    border-color: var(--myVanilla-c-brand, #3b8eed);
+    transform: translateY(-1px);
+}
+
+.wysiwyg-btn:active {
+    transform: translateY(0);
+}
+
+.wysiwyg-btn.btn-highlight {
+    background: var(--myVanilla-c-yellow-light, #ffe417);
+    border-color: var(--myVanilla-c-yellow-dark, #e0ad15);
+    color: var(--myVanilla-c-black, #1a1a1a);
+}
+
+.wysiwyg-btn.btn-highlight:hover {
+    background: var(--myVanilla-c-yellow, #ffc517);
+    color: var(--myVanilla-c-black, #1a1a1a);
+}
+
+.wysiwyg-btn.btn-clear {
+    margin-left: auto;
+    background: var(--myVanilla-c-red-light, #f43771);
+    color: var(--myVanilla-c-white, #ffffff);
+    border-color: var(--myVanilla-c-red-dark, #cd2d3f);
+}
+
+.wysiwyg-btn.btn-clear:hover {
+    background: var(--myVanilla-c-red, #ed3c50);
+}
+
+.wysiwyg-editor {
+    min-height: 180px;
+    padding: 24px;
+    color: var(--myVanilla-c-text-1, #213547);
+    font-size: 1rem;
+    line-height: 1.6;
+    outline: none;
+    background: var(--myVanilla-c-bg, #ffffff);
+    transition: background-color 0.2s ease;
+}
+
+.wysiwyg-editor:focus {
+    background-color: rgba(90, 160, 240, 0.02);
+}
+
+.wysiwyg-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background: var(--myVanilla-c-bg-soft, #f9f9f9);
+    border-top: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+    font-size: 0.8rem;
+    color: var(--myVanilla-c-text-2, rgba(60, 60, 60, 0.7));
+}
+
+.footer-stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.selection-badge {
+    background: var(--myVanilla-c-brand-light, #549ced);
+    color: var(--myVanilla-c-white, #ffffff);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.char-count {
+    background: var(--myVanilla-c-bg-mute, #f1f1f1);
+    color: var(--myVanilla-c-text-1, #213547);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: 1px solid var(--myVanilla-c-divider, rgba(60, 60, 60, 0.12));
+}
+
+mark {
+    background-color: var(--myVanilla-c-yellow-light, #ffe417) !important;
+    color: #000 !important;
+    padding: 2px 4px;
+    border-radius: 4px;
+}

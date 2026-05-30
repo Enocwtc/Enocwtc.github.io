@@ -116,9 +116,9 @@ export default async function defineComponent(componentName) {
                 }
 
                 // --- HOOKS DE CICLO DE VIDA ---
-                if (module.created) this._onCreated = module.created;
-                if (module.mounted) this._onMounted = module.mounted;
-                if (module.unmounted) this._onUnmounted = module.unmounted;
+                if (module.Created) this._onCreated = module.Created;
+                if (module.Mounted) this._onMounted = module.Mounted;
+                if (module.Unmounted) this._onUnmounted = module.Unmounted;
 
                 // El componente ya fue creado en memoria con Data/Methods integrados
                 if (this._onCreated) this._onCreated.call(this);

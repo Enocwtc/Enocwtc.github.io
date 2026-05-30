@@ -703,7 +703,6 @@ export class DobleParseoArrebatoCremoso {
                 if (valueToComponent !== undefined) {
                     //Removemos el atributo
                     nodo.removeAttribute(attribute.name);
-
                     // Asignación directa y autogestionada (Evita memory leaks ya que el DOM GC se encarga si se borra)
                     nodo.addEventListener(typeEvent, (e) => {
                         if (typeof this.thisComponent[valueToComponent.name] === 'function') {

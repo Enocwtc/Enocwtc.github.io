@@ -1,0 +1,34 @@
+<div class="wysiwyg-container">
+    <div class="wysiwyg-header">
+        <h3>Text Editor WYSIWYG</h3>
+        <p>Select text to view and format in real time.</p>
+    </div>
+    
+    <div class="wysiwyg-toolbar">
+        <button class="wysiwyg-btn"  title="Negrita" onmousedown="{{texttoBold}}">
+            <b>B</b>
+        </button>
+        <button class="wysiwyg-btn" title="Itálica" onmousedown="{{texttoItalic}}">
+            <i>I</i>
+        </button>
+        <button class="wysiwyg-btn" title="Subrayado" onmousedown="{{texttoUnderline}}">
+            <u>U</u>
+        </button>
+        <button class="wysiwyg-btn"  title="Tachado" onmousedown="{{texttoStrikethrough}}">
+            <s>S</s>
+        </button>
+        <button class="wysiwyg-btn btn-highlight"  title="Resaltar" onmousedown="{{colorMarker}}">
+            R
+        </button>
+    </div>
+    
+    <div class="wysiwyg-editor" contenteditable="true" >
+    <b>Welcome to myVanilla.js!</b> <span style="background-color: yellow;">This is a reactive <u>WYSIWYG</u></span> text editor built entirely in <b><span style="background-color: yellow;"></span></b>vanilla <b><span style="background-color: yellow;">JavaScript</span></b> with no <s>external dependencies</s>. <u>Try selecting text and applying styles from the top toolbar.</u>    </div>
+    <div class="wysiwyg-footer">
+        <div class="footer-stat">
+            <span>myVanila.js/wysiwyg </span>
+            <span class="selection-badge">By Enocwtc@gmail.com</span>
+        </div>
+        
+    </div>
+</div>
