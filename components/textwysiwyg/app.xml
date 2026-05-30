@@ -23,7 +23,7 @@
     </div>
     
     <div class="wysiwyg-editor" contenteditable="true" >
-    <b>Welcome to myVanilla.js!</b> <span style="background-color: yellow;">This is a reactive <u>WYSIWYG</u></span> text editor built entirely in <b><span style="background-color: yellow;"></span></b>vanilla <b><span style="background-color: yellow;">JavaScript</span></b> with no <s>external dependencies</s>. <u>Try selecting text and applying styles from the top toolbar.</u>    </div>
+    <b>Welcome to myVanilla.js!</b> <span style="background-color: yellow;">This is a reactive <u>WYSIWYG</u></span> text editor built entirely in <b><span style="background-color: yellow;"></span></b>vanilla <b><span style="background-color: yellow;">JavaScript</span></b> with <b><u><i>no</i></u></b> <s>external dependencies</s>. <u>Try selecting text and applying styles from the top toolbar.</u>    </div>
     <div class="wysiwyg-footer">
         <div class="footer-stat">
             <span>myVanila.js/wysiwyg </span>
